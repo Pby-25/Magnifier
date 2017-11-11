@@ -1,3 +1,20 @@
 {
+  "manifest_version": 2,
+  "name": "Magnifier Chrome Extension",
+  "version": "0.0.1",
+  "description": "",
+  "icons": {
 
+  },
+  "browser_action": {
+
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions" : [
+    "declarativeContent",
+    "activeTab"
+  ]
 }
