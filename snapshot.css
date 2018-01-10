@@ -2,3 +2,32 @@ body {
     margin: 0 !important;
     padding: 0 !important;
 }
+
+.magnify{
+    position: relative;
+    width: auto;
+    height: auto;
+}
+
+/*Lets create the magnifying glass*/
+.large{
+    width: 175px;
+    height: 175px;
+    position: relative;
+
+    /*Multiple box shadows to achieve the glass effect*/
+    box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85),
+    0 0 7px 7px rgba(0, 0, 0, 0.25),
+    inset 0 0 40px 2px rgba(0, 0, 0, 0.25);
+
+    /*Load the background image*/
+    background: url('placeholder.png') no-repeat;
+    /*hide the glass by default*/
+    display: none;
+
+}
+
+/*To solve overlap bug at the edges during magnification*/
+.small {
+    display: block;
+}
