@@ -22,6 +22,10 @@ body {
 
     /*Load the background image*/
     background: url('placeholder.png') no-repeat;
+
+    transform: scale(4);
+    image-rendering: crisp-edges;
+
     /*hide the glass by default*/
     display: none;
 

@@ -34,5 +34,5 @@ chrome.browserAction.onClicked.addListener(function() {
         chrome.tabs.create({url: viewTabUrl}, function(tab) {
             targetId = tab.id;
         });
-    });
+    }, "png"); // Specified lossless format
 });
