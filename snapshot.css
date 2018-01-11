@@ -1,10 +1,11 @@
 body {
-    margin: 0 !important;
-    padding: 0 !important;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
 }
 
 .magnify{
-    position: relative;
+    position: absolute;
     width: auto;
     height: auto;
 }
@@ -13,7 +14,8 @@ body {
 .large{
     width: 175px;
     height: 175px;
-    position: relative;
+    position: absolute;
+    border-radius: 100%;
 
     /*Multiple box shadows to achieve the glass effect*/
     box-shadow: 0 0 0 7px rgba(255, 255, 255, 0.85),
@@ -23,8 +25,8 @@ body {
     /*Load the background image*/
     background: url('placeholder.png') no-repeat;
 
-    transform: scale(4);
-    image-rendering: crisp-edges;
+    transform: scale(3);
+    image-rendering: pixelated;
 
     /*hide the glass by default*/
     display: none;

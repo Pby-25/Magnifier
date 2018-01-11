@@ -5,9 +5,11 @@
 var id = 100;
 
 // Listen for a click on browser action icon
+// XXX might required tabs and <all_urls> permissions
 chrome.browserAction.onClicked.addListener(function() {
 
-    chrome.tabs.captureVisibleTab(function(screenshotUrl) {
+    // Capture the image in a loseless format
+    chrome.tabs.captureVisibleTab({"format":"png"}, function(screenshotUrl) {
         var viewTabUrl = chrome.extension.getURL('snapshot.html?id=' + id++)
         var targetId = null;
 
@@ -34,5 +36,5 @@ chrome.browserAction.onClicked.addListener(function() {
         chrome.tabs.create({url: viewTabUrl}, function(tab) {
             targetId = tab.id;
         });
-    }, "png"); // Specified lossless format
+    });
 });

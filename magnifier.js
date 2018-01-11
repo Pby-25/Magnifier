@@ -6,7 +6,7 @@ function setScreenshotUrl(url) {
 $(function(){
     var magnify_width = 0;
     var magnify_height = 0;
-    var magnify_str = 2;
+    var magnify_str = 3;
 
     //Now the mousemove function
     $(".magnify").mousemove(function(e){
