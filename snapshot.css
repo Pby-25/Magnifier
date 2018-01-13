@@ -29,6 +29,9 @@ body {
     /*hide the glass by default*/
     display: none;
 
+    /*hide the cursor*/
+    cursor: none;
+
 }
 
 /*To solve overlap bug at the edges during magnification*/

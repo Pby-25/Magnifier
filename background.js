@@ -5,11 +5,12 @@
 var id = 100;
 
 // Listen for a click on browser action icon
-// XXX might required tabs and <all_urls> permissions
-chrome.browserAction.onClicked.addListener(function() {
+chrome.browserAction.onClicked.addListener(function(theTab) {
+    // Record the position of the tab
+    var tabIndex = theTab.index;
 
     // Capture the image in a loseless format
-    chrome.tabs.captureVisibleTab({"format":"png"}, function(screenshotUrl) {
+    chrome.tabs.captureVisibleTab({format: "png"}, function(screenshotUrl) {
         var viewTabUrl = chrome.extension.getURL('snapshot.html?id=' + id++)
         var targetId = null;
 
@@ -17,6 +18,7 @@ chrome.browserAction.onClicked.addListener(function() {
             // Wait for the tab we opened to finish loading.
             if (tabId != targetId || changedProps.status != "complete")
                 return;
+
             chrome.tabs.onUpdated.removeListener(listener);
 
             // Look through all views to find the window which will display
@@ -31,9 +33,11 @@ chrome.browserAction.onClicked.addListener(function() {
                     break;
                 }
             }
+
         });
 
-        chrome.tabs.create({url: viewTabUrl}, function(tab) {
+        // Open the magnifier tab at appropriate position
+        chrome.tabs.create({url: viewTabUrl, index: tabIndex}, function(tab) {
             targetId = tab.id;
         });
     });
