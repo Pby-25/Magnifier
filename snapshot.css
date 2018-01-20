@@ -23,7 +23,6 @@ body {
     /*Load the background image*/
     background: url('placeholder.png') no-repeat;
 
-    transform: scale(3);
     image-rendering: pixelated;
 
     /*hide the glass by default*/

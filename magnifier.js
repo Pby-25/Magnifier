@@ -5,9 +5,10 @@ function setScreenshotUrl(url) {
 
 function setMagnifyStr(strength){
     var magnifier = document.getElementById("bottom_layer");
-    magnifier.style.width = (magnifier.clientWidth/strength) + "px";
-    magnifier.style.height = (magnifier.clientHeight/strength) + "px";
+    var magniSize = 200;
     magnifier.style.transform = "scale(" + strength + ")";
+    //magnifier.style.width = Math.round(magniSize/strength) + "px";
+    //magnifier.style.height = Math.round(magniSize/strength) + "px";
 };
 
 $(function(){

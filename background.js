@@ -6,6 +6,12 @@ var id = 100;
 
 // Listen for a click on browser action icon
 chrome.browserAction.onClicked.addListener(function(theTab) {
+    // Check if it's a magnifier tab
+    if (theTab.title.indexOf("Magnifier_Tab")==0){
+        chrome.tabs.remove(theTab.id);
+        return;
+    }
+
     // Record the position of the tab
     var tabIndex = theTab.index;
 
@@ -30,6 +36,11 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
                 var view = views[i];
                 if (view.location.href == viewTabUrl) {
                     view.setScreenshotUrl(screenshotUrl);
+                    chrome.storage.sync.get({
+                        magnifierStrength: 2
+                    }, function(items){
+                        view.setMagnifyStr(items.magnifierStrength);
+                    });
                     break;
                 }
             }

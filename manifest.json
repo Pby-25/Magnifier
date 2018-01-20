@@ -11,9 +11,17 @@
     "scripts": ["background.js"],
     "persistent": false
   },
-  "options_ui":{
+  "options_ui": {
     "page": "options.html",
     "chrome_style": true
+  },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Alt+Z",
+        "mac": "MacCtrl+Z"
+      }
+    }
   },
   "permissions" : [
     "activeTab",
