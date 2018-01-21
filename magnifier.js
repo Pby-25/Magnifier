@@ -1,14 +1,17 @@
 function setScreenshotUrl(url) {
-    document.getElementById('top_layer').src = url;
+    document.getElementById("top_layer").src = url;
     document.getElementById("bottom_layer").style.background = "url('" + url + "') no-repeat";
 };
 
 function setMagnifyStr(strength){
     var magnifier = document.getElementById("bottom_layer");
-    var magniSize = 200;
+    var magniSize = 275;
     magnifier.style.transform = "scale(" + strength + ")";
-    //magnifier.style.width = Math.round(magniSize/strength) + "px";
-    //magnifier.style.height = Math.round(magniSize/strength) + "px";
+    magnifier.style.width = magniSize/strength + "px";
+    magnifier.style.height = magniSize/strength + "px";
+    magnifier.style.boxShadow = "0 0 0 " + 7/strength + "px rgba(255, 255, 255, 0.85), " +
+                                 "0 0 " + 7/strength + "px " + 7/strength + "px rgba(0, 0, 0, 0.25), " +
+                                 "inset 0 0 " + 40/strength + "px "+ 2/strength + "px rgba(0, 0, 0, 0.25)"
 };
 
 $(function(){

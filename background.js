@@ -1,7 +1,3 @@
-// TODO
-// chrome.runtime.onInstalled.addListener(function() {});
-// Simplified browser action first
-
 var id = 100;
 
 // Listen for a click on browser action icon
@@ -37,7 +33,7 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
                 if (view.location.href == viewTabUrl) {
                     view.setScreenshotUrl(screenshotUrl);
                     chrome.storage.sync.get({
-                        magnifierStrength: 2
+                        magnifierStrength: 4
                     }, function(items){
                         view.setMagnifyStr(items.magnifierStrength);
                     });
