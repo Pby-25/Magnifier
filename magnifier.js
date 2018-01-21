@@ -1,8 +1,10 @@
+// set the url of image to be magnified
 function setScreenshotUrl(url) {
     document.getElementById("top_layer").src = url;
     document.getElementById("bottom_layer").style.background = "url('" + url + "') no-repeat";
 };
 
+// Set the magnifier's attributes according to user's preference
 function setMagnifier(strength, magniSize){
     var magnifier = document.getElementById("bottom_layer");
     magnifier.style.transform = "scale(" + strength + ")";
@@ -13,14 +15,11 @@ function setMagnifier(strength, magniSize){
                                  "inset 0 0 " + 40/strength + "px "+ 2/strength + "px rgba(0, 0, 0, 0.25)"
 };
 
+// Adjust the magnifying glass based on cursor's position
 $(function(){
-
-    //Now the mousemove function
     $(".magnify").mousemove(function(e){
-
-
         // Fade-in and fade-out the glass if the mouse is inside the page
-        if(e.pageX < $(this).width() && e.pageY < $(this).height() && e.pageX > 0 && e.pageY > 0)
+        if(e.pageX < $(this).width()-1 && e.pageY < $(this).height()-4 && e.pageX > 0 && e.pageY > 0)
         {
             $(".large").fadeIn(100);
         }
@@ -41,8 +40,6 @@ $(function(){
             var y_position = e.pageY - $(".large").height()/2;
 
             $(".large").css({left: x_position, top: y_position, backgroundPosition: bg_position});
-
-
         };
     });
 });

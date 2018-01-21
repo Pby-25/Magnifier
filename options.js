@@ -1,4 +1,4 @@
-// Saves options to chrome.storage.sync.
+// Save options to chrome.storage.sync.
 function save_options() {
     var magStr = document.getElementById('strength').value;
     var magSize = document.getElementById('size').value;
@@ -19,8 +19,7 @@ function save_options() {
     });
 };
 
-// Restores select box and checkbox state using the preferences
-// stored in chrome.storage.
+// Restore data using the preferences stored in chrome.storage.
 function restore_options() {
     chrome.storage.sync.get({
         magnifierStrength: 4,
@@ -31,6 +30,7 @@ function restore_options() {
     });
 };
 
+// Reset the preference to default values
 function reset_options(){
     chrome.storage.sync.clear(function(){
         restore_options();

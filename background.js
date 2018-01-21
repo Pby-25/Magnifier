@@ -2,16 +2,13 @@ var id = 100;
 
 // Listen for a click on browser action icon
 chrome.browserAction.onClicked.addListener(function(theTab) {
-    // Check if it's a magnifier tab
+    // Close the tab if it's a magnifier tab
     if (theTab.title.indexOf("Magnifier_Tab")==0){
         chrome.tabs.remove(theTab.id);
         return;
     }
 
-    // Record the position of the tab
-    var tabIndex = theTab.index;
-
-    // Capture the image in a loseless format
+    // Capture the image in loseless format
     chrome.tabs.captureVisibleTab({format: "png"}, function(screenshotUrl) {
         var viewTabUrl = chrome.extension.getURL('snapshot.html?id=' + id++)
         var targetId = null;
@@ -23,15 +20,14 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
 
             chrome.tabs.onUpdated.removeListener(listener);
 
-            // Look through all views to find the window which will display
-            // the screenshot.  The url of the tab which will display the
-            // screenshot includes a query parameter with a unique id, which
-            // ensures that exactly one view will have the matching URL.
+            // Look through all views to find the window which will display the screenshot
             var views = chrome.extension.getViews();
             for (var i = 0; i < views.length; i++) {
                 var view = views[i];
                 if (view.location.href == viewTabUrl) {
+                    // Setup the image
                     view.setScreenshotUrl(screenshotUrl);
+                    // Setup the magnifier
                     chrome.storage.sync.get({
                         magnifierStrength: 4,
                         magnifierSize: 275
@@ -45,7 +41,7 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
         });
 
         // Open the magnifier tab at appropriate position
-        chrome.tabs.create({url: viewTabUrl, index: tabIndex}, function(tab) {
+        chrome.tabs.create({url: viewTabUrl, index: theTab.index}, function(tab) {
             targetId = tab.id;
         });
     });
