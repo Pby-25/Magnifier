@@ -3,9 +3,8 @@ function setScreenshotUrl(url) {
     document.getElementById("bottom_layer").style.background = "url('" + url + "') no-repeat";
 };
 
-function setMagnifyStr(strength){
+function setMagnifier(strength, magniSize){
     var magnifier = document.getElementById("bottom_layer");
-    var magniSize = 275;
     magnifier.style.transform = "scale(" + strength + ")";
     magnifier.style.width = magniSize/strength + "px";
     magnifier.style.height = magniSize/strength + "px";

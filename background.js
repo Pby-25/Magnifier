@@ -33,9 +33,10 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
                 if (view.location.href == viewTabUrl) {
                     view.setScreenshotUrl(screenshotUrl);
                     chrome.storage.sync.get({
-                        magnifierStrength: 4
+                        magnifierStrength: 4,
+                        magnifierSize: 275
                     }, function(items){
-                        view.setMagnifyStr(items.magnifierStrength);
+                        view.setMagnifier(items.magnifierStrength, items.magnifierSize);
                     });
                     break;
                 }
