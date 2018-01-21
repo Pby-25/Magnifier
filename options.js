@@ -8,10 +8,14 @@ function save_options() {
     }, function() {
         // Update status to let user know options were saved.
         var status = document.getElementById('status');
-        status.textContent = 'Options saved.';
+        if (magStr <= 0 || magSize <= 0 ){
+            status.textContent = 'Non-positive number detected, the magnifier might not behave as expected.'
+        } else {
+            status.textContent = 'Options saved.';
+        }
         setTimeout(function() {
             status.textContent = '';
-        }, 1150);
+        }, 1550);
     });
 };
 
@@ -34,7 +38,7 @@ function reset_options(){
         status.textContent = 'Options reset.';
         setTimeout(function() {
             status.textContent = '';
-        }, 1150);
+        }, 1200);
     });
 };
 
