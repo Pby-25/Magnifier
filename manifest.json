@@ -1,11 +1,16 @@
 {
   "manifest_version": 2,
-  "name": "Magnifier Chrome Extension",
-  "version": "0.2.0",
-  "description": "a",
+  "name": "Magnifying Glass",
+  "version": "0.3.0",
+  "description": "Summon a magnifying glass with the press of a button",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png",
+    "512": "icon.png"
+  },
   "browser_action": {
-    "default_icon": "magnifying_glass.png",
-    "default_title": "Still testing"
+    "default_title": "Magnifying Glass"
   },
   "background": {
     "scripts": ["background.js"],

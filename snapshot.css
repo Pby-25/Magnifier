@@ -15,7 +15,7 @@ body {
     border-radius: 100%;
 
     /*Load the placeholder image in case the image somehow failed to load*/
-    background: url('placeholder.png') no-repeat;
+    background: url('placeholder.jpg') no-repeat;
 
     /*Remove anti-aliasing artifacts*/
     image-rendering: pixelated;
