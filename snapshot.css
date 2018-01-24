@@ -12,7 +12,6 @@ body {
 /*The magnifying glass*/
 .large{
     position: absolute;
-    border-radius: 100%;
     /*Load the placeholder image in case the image somehow failed to load*/
     background: url('placeholder.jpg') no-repeat;
     display: none;

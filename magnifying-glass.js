@@ -12,6 +12,7 @@ chrome.runtime.onMessage.addListener(function transfer(config, sender){
     var strength = config.magnifier_str;
     var magniSize = config.magnifier_size/zoom;
     var magAA = config.magnifier_aa;
+    var magShape = config.magnifier_shape;
     // Remove the listener since it's no longer needed
     chrome.runtime.onMessage.removeListener(transfer);
 
@@ -26,6 +27,7 @@ chrome.runtime.onMessage.addListener(function transfer(config, sender){
     } else {
         magnifier.style.imageRendering = "pixelated";
     }
+    magnifier.style.borderRadius = magShape + "%";
     magnifier.style.background = "url('" + imageUrl + "') no-repeat";
     magnifier.style.transform = "scale(" + strength + ")";
     magnifier.style.width = magniSize/strength + "px";

@@ -5,13 +5,14 @@ function setScreenshotUrl(url) {
 };
 
 // Set the magnifier's attributes according to user's preference
-function setMagnifier(strength, magniSize, magAA){
+function setMagnifier(strength, magniSize, magAA, magShape){
     var magnifier = document.getElementById("bottom_layer");
     if (magAA){
         magnifier.style.imageRendering = "auto";
     } else {
         magnifier.style.imageRendering = "pixelated";
     }
+    magnifier.style.borderRadius = magShape + "%";
     magnifier.style.transform = "scale(" + strength + ")";
     magnifier.style.width = magniSize/strength + "px";
     magnifier.style.height = magniSize/strength + "px";

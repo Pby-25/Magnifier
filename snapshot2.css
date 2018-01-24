@@ -13,7 +13,6 @@
 
 #_bottom_layer{
     position: absolute;
-    border-radius: 100%;
     display: none;
     cursor: none;
     outline: none;

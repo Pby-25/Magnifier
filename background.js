@@ -6,9 +6,10 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
 
     chrome.storage.sync.get({
         magnifierStrength: 4,
-        magnifierSize: 275,
+        magnifierSize: 500,
         magnifierAA: false,
-        magnifierCM: false
+        magnifierCM: false,
+        magnifierShape: 100
     }, function(items){
         // Check if compatibility mode is enabled
         if(items.magnifierCM){
@@ -34,7 +35,8 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
                         if (view.location.href == viewTabUrl) {
                             // Setup the image
                             view.setScreenshotUrl(screenshotUrl);
-                            view.setMagnifier(items.magnifierStrength, items.magnifierSize, items.magnifierAA);
+                            view.setMagnifier(items.magnifierStrength, items.magnifierSize,
+                                items.magnifierAA, items.magnifierShape);
                             break;
                         }
                     }
@@ -54,7 +56,7 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
                                 chrome.tabs.sendMessage(theTab.id, {
                                     snapshot_url: screenshotUrl, magnifier_str: items.magnifierStrength,
                                     magnifier_size: items.magnifierSize, magnifier_aa: items.magnifierAA,
-                                    page_zoom: zoomFactor
+                                    magnifier_shape: items.magnifierShape, page_zoom: zoomFactor
                                 })
                             })
                         })
