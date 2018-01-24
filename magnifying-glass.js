@@ -15,6 +15,11 @@ chrome.runtime.onMessage.addListener(function transfer(config, sender){
     // Remove the listener since it's no longer needed
     chrome.runtime.onMessage.removeListener(transfer);
 
+    // Get the dimension of scrollbars
+    var scroll_width=(window.innerWidth-$(window).width());
+    var scroll_height=(window.innerHeight-$(window).height());
+
+
     var magnifier = document.getElementById("_bottom_layer");
     if (magAA){
         magnifier.style.imageRendering = "auto";
@@ -31,7 +36,8 @@ chrome.runtime.onMessage.addListener(function transfer(config, sender){
 
     $('._magnify_scope').mousemove(function(e){
         // Fade-in and fade-out the glass if the mouse is inside the page
-        if(e.clientX < $(this).width()-1 && e.clientY < $(this).height()-4 && e.clientX > 0 && e.clientY > 0)
+        if(e.clientX < $(this).width() - scroll_width - 1 && e.clientY < $(this).height() - scroll_height - 4
+            && e.clientX>0 && e.clientY>0)
         {
             $('#_bottom_layer').fadeIn(100);
             // Focus the bottom layer to allow keypress events
