@@ -5,15 +5,20 @@ function setScreenshotUrl(url) {
 };
 
 // Set the magnifier's attributes according to user's preference
-function setMagnifier(strength, magniSize){
+function setMagnifier(strength, magniSize, magAA){
     var magnifier = document.getElementById("bottom_layer");
+    if (magAA){
+        magnifier.style.imageRendering = "auto";
+    } else {
+        magnifier.style.imageRendering = "pixelated";
+    }
     magnifier.style.transform = "scale(" + strength + ")";
     magnifier.style.width = magniSize/strength + "px";
     magnifier.style.height = magniSize/strength + "px";
     magnifier.style.boxShadow = "0 0 0 " + 7/strength + "px rgba(255, 255, 255, 0.85), " +
                                  "0 0 " + 7/strength + "px " + 7/strength + "px rgba(0, 0, 0, 0.25), " +
-                                 "inset 0 0 " + 40/strength + "px "+ 2/strength + "px rgba(0, 0, 0, 0.25)"
-};
+                                 "inset 0 0 " + 40/strength + "px "+ 2/strength + "px rgba(0, 0, 0, 0.25)";
+}
 
 // Adjust the magnifying glass based on cursor's position
 $(function(){
@@ -40,6 +45,10 @@ $(function(){
             var y_position = e.pageY - $(".large").height()/2;
 
             $(".large").css({left: x_position, top: y_position, backgroundPosition: bg_position});
-        };
-    });
-});
+        }
+    })
+
+    $(".magnify").mousedown(function(c){
+        window.close();
+    })
+})

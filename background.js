@@ -1,3 +1,6 @@
+// unique query for compatibility mode
+var id = 100;
+
 // Listen for a click on browser action icon
 chrome.browserAction.onClicked.addListener(function(theTab) {
 
@@ -10,17 +13,14 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
         // If compatibility mode is enabled
         if(items.magnifierCM){
             // Close the tab if it's a magnifier tab
-            if (theTab.title.indexOf("Magnifier_Tab")==0){
+            if (theTab.title.indexOf("__Magnifier_Tab")==0){
                 chrome.tabs.remove(theTab.id);
                 return;
             }
-
             // Capture the image in loseless format
             chrome.tabs.captureVisibleTab({format: "png"}, function(screenshotUrl) {
                 var viewTabUrl = chrome.extension.getURL('snapshot.html?id=' + id++)
                 var targetId = null;
-
-
 
                 chrome.tabs.onUpdated.addListener(function listener(tabId, changedProps) {
                     // Wait for the tab we opened to finish loading.
@@ -36,10 +36,10 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
                         if (view.location.href == viewTabUrl) {
                             // Setup the image
                             view.setScreenshotUrl(screenshotUrl);
-                            view.setMagnifier(items.magnifierStrength, items.magnifierSize);
+                            view.setMagnifier(items.magnifierStrength, items.magnifierSize, items.magnifierAA);
                             break;
-                        };
-                    };
+                        }
+                    }
 
                 })
 
@@ -56,7 +56,7 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
                         chrome.tabs.executeScript(theTab.id, {file: "magnifying-glass.js"}, function () {
                             chrome.tabs.sendMessage(theTab.id, {
                                 snapshot_url: screenshotUrl, magnifier_str: items.magnifierStrength,
-                                magnifier_size: items.magnifierSize
+                                magnifier_size: items.magnifierSize, magnifier_aa: items.magnifierAA
                             })
                         })
                     })

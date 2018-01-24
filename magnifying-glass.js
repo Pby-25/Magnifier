@@ -5,10 +5,16 @@ chrome.runtime.onMessage.addListener(function transfer(config, sender){
     var imageUrl = config.snapshot_url;
     var strength = config.magnifier_str;
     var magniSize = config.magnifier_size;
+    var magAA = config.magnifier_aa;
     // Remove the listener since it's no longer needed
     chrome.runtime.onMessage.removeListener(transfer);
 
     var magnifier = document.getElementById("_bottom_layer");
+    if (magAA){
+        magnifier.style.imageRendering = "auto";
+    } else {
+        magnifier.style.imageRendering = "pixelated";
+    }
     magnifier.style.background = "url('" + imageUrl + "') no-repeat";
     magnifier.style.transform = "scale(" + strength + ")";
     magnifier.style.width = magniSize/strength + "px";
