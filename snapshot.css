@@ -13,16 +13,11 @@ body {
 .large{
     position: absolute;
     border-radius: 100%;
-
     /*Load the placeholder image in case the image somehow failed to load*/
     background: url('placeholder.jpg') no-repeat;
-
-    /*hide the glass by default*/
     display: none;
-
-    /*hide the cursor*/
     cursor: none;
-
+    outline: none;
 }
 
 /*To solve overlap bug at the edges during magnification*/

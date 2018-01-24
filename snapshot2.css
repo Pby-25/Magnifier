@@ -1,4 +1,4 @@
-#_magnify_scope{
+._magnify_scope{
     position: fixed;
     top: 0;
     left: 0;
@@ -13,8 +13,7 @@
 #_bottom_layer{
     position: absolute;
     border-radius: 100%;
-    /*hide the glass by default*/
     display: none;
-    /*hide the cursor*/
     cursor: none;
+    outline: none;
 }

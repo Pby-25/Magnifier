@@ -12,11 +12,6 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
     }, function(items){
         // If compatibility mode is enabled
         if(items.magnifierCM){
-            // Close the tab if it's a magnifier tab
-            if (theTab.title.indexOf("__Magnifier_Tab")==0){
-                chrome.tabs.remove(theTab.id);
-                return;
-            }
             // Capture the image in loseless format
             chrome.tabs.captureVisibleTab({format: "png"}, function(screenshotUrl) {
                 var viewTabUrl = chrome.extension.getURL('snapshot.html?id=' + id++)
@@ -24,11 +19,9 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
 
                 chrome.tabs.onUpdated.addListener(function listener(tabId, changedProps) {
                     // Wait for the tab we opened to finish loading.
-                    if (tabId != targetId || changedProps.status != "complete")
-                        return;
+                    if (tabId != targetId || changedProps.status != "complete") return;
 
                     chrome.tabs.onUpdated.removeListener(listener);
-
                     // Look through all views to find the window which will display the screenshot
                     var views = chrome.extension.getViews();
                     for (var i = 0; i < views.length; i++) {
@@ -40,9 +33,7 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
                             break;
                         }
                     }
-
                 })
-
                 // Open the magnifier tab at appropriate position
                 chrome.tabs.create({url: viewTabUrl, index: theTab.index}, function(tab) {
                     targetId = tab.id;
@@ -62,7 +53,6 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
                     })
                 })
             })
-        };
+        }
     })
 })
-

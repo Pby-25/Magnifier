@@ -27,6 +27,8 @@ $(function(){
         if(e.pageX < $(this).width()-1 && e.pageY < $(this).height()-4 && e.pageX > 0 && e.pageY > 0)
         {
             $(".large").fadeIn(100);
+            // Focus the bottom layer to allow keypress events
+            $(".large").focus();
         }
         else
         {
@@ -48,7 +50,8 @@ $(function(){
         }
     })
 
-    $(".magnify").mousedown(function(c){
+    // Turn off the application if the user's action imply they want to do so
+    $(".large").on('wheel keydown click', function(e){
         window.close();
     })
 })

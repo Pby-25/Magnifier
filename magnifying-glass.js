@@ -1,6 +1,6 @@
 chrome.runtime.onMessage.addListener(function transfer(config, sender){
     // Create new div for the magnifier
-    $('body').after('<div id="_magnify_scope"><div id="_bottom_layer"></div></div>');
+    $('body').after('<div class="_magnify_scope"><div id="_bottom_layer" tabindex="0"></div></div>');
 
     var imageUrl = config.snapshot_url;
     var strength = config.magnifier_str;
@@ -23,11 +23,13 @@ chrome.runtime.onMessage.addListener(function transfer(config, sender){
         "0 0 " + 7/strength + "px " + 7/strength + "px rgba(0, 0, 0, 0.25), " +
         "inset 0 0 " + 40/strength + "px "+ 2/strength + "px rgba(0, 0, 0, 0.25)";
 
-    $('#_magnify_scope').mousemove(function(e){
+    $('._magnify_scope').mousemove(function(e){
         // Fade-in and fade-out the glass if the mouse is inside the page
         if(e.clientX < $(this).width()-1 && e.clientY < $(this).height()-4 && e.clientX > 0 && e.clientY > 0)
         {
             $('#_bottom_layer').fadeIn(100);
+            // Focus the bottom layer to allow keypress events
+            $('#_bottom_layer').focus();
         }
         else
         {
@@ -49,16 +51,9 @@ chrome.runtime.onMessage.addListener(function transfer(config, sender){
         };
     });
 
-    $('#_bottom_layer').keydown(function(e){
-        $('#_magnify_scope').remove();
-    });
-
-    $('#_bottom_layer').mousedown(function(e){
-        $('#_magnify_scope').remove();
-    });
-
-    $('#_bottom_layer').on('wheel', function(e){
-        $('#_magnify_scope').remove();
+    // Turn off the application if the user's action imply they want to do so
+    $('#_bottom_layer').on('wheel keydown click', function(e){
+        $('._magnify_scope').remove();
     })
     
 
