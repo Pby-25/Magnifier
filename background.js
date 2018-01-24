@@ -50,9 +50,12 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
                 chrome.tabs.insertCSS(theTab.id, {file: "snapshot2.css"}, function () {
                     chrome.tabs.executeScript(theTab.id, {file: "jquery-3.2.1.min.js"}, function () {
                         chrome.tabs.executeScript(theTab.id, {file: "magnifying-glass.js"}, function () {
-                            chrome.tabs.sendMessage(theTab.id, {
-                                snapshot_url: screenshotUrl, magnifier_str: items.magnifierStrength,
-                                magnifier_size: items.magnifierSize, magnifier_aa: items.magnifierAA
+                            chrome.tabs.getZoom(theTab.id, function(zoomFactor){
+                                chrome.tabs.sendMessage(theTab.id, {
+                                    snapshot_url: screenshotUrl, magnifier_str: items.magnifierStrength,
+                                    magnifier_size: items.magnifierSize, magnifier_aa: items.magnifierAA,
+                                    page_zoom: zoomFactor
+                                })
                             })
                         })
                     })

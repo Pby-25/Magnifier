@@ -1,14 +1,16 @@
 chrome.runtime.onMessage.addListener(function transfer(config, sender){
     // Do nothing if a magnifying glass has already been summoned
     if (document.getElementById("_bottom_layer")){
+        chrome.runtime.onMessage.removeListener(transfer);
         return;
     }
     // Create new div for the magnifier
     $('body').after('<div class="_magnify_scope"><div id="_bottom_layer" tabindex="0"></div></div>');
 
     var imageUrl = config.snapshot_url;
+    var zoom = config.page_zoom;
     var strength = config.magnifier_str;
-    var magniSize = config.magnifier_size;
+    var magniSize = config.magnifier_size/zoom;
     var magAA = config.magnifier_aa;
     // Remove the listener since it's no longer needed
     chrome.runtime.onMessage.removeListener(transfer);
@@ -43,8 +45,8 @@ chrome.runtime.onMessage.addListener(function transfer(config, sender){
         if($('#_bottom_layer').is(':visible'))
         {
             // Calculate the relative position of large image
-            var x_offset = Math.round(e.clientX - $('#_bottom_layer').width()/2)*-1;
-            var y_offset = Math.round(e.clientY - $('#_bottom_layer').height()/2)*-1;
+            var x_offset = -1*(e.clientX - $('#_bottom_layer').width()/2)*zoom;
+            var y_offset = -1*(e.clientY - $('#_bottom_layer').height()/2)*zoom;
             var bg_position = x_offset + "px " + y_offset + "px";
 
             // Move the magnifying glass with the mouse
