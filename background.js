@@ -1,12 +1,26 @@
-var id = 100;
-
 // Listen for a click on browser action icon
 chrome.browserAction.onClicked.addListener(function(theTab) {
-    // Close the tab if it's a magnifier tab
-    if (theTab.title.indexOf("Magnifier_Tab")==0){
-        chrome.tabs.remove(theTab.id);
-        return;
-    }
+
+    // Capture the current viewport
+    chrome.tabs.captureVisibleTab({format: "png"}, function(screenshotUrl) {
+        // Setup the magnifier
+        chrome.storage.sync.get({
+            magnifierStrength: 4,
+            magnifierSize: 275
+        }, function(items){
+            chrome.tabs.insertCSS(theTab.id, {file: "snapshot2.css"}, function(){
+                chrome.tabs.executeScript(theTab.id, {file: "jquery-3.2.1.min.js"}, function(){
+                    chrome.tabs.executeScript(theTab.id, {file: "magnifying-glass.js"}, function(){
+                        chrome.tabs.sendMessage(theTab.id, {snapshot_url: screenshotUrl, magnifier_str: items.magnifierStrength,
+                            magnifier_size: items.magnifierSize})
+                    })
+                })
+            })
+
+        });
+    })
+
+
 
     // Capture the image in loseless format
     chrome.tabs.captureVisibleTab({format: "png"}, function(screenshotUrl) {
@@ -27,13 +41,7 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
                 if (view.location.href == viewTabUrl) {
                     // Setup the image
                     view.setScreenshotUrl(screenshotUrl);
-                    // Setup the magnifier
-                    chrome.storage.sync.get({
-                        magnifierStrength: 4,
-                        magnifierSize: 275
-                    }, function(items){
-                        view.setMagnifier(items.magnifierStrength, items.magnifierSize);
-                    });
+
                     break;
                 }
             }
