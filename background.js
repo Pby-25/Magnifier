@@ -10,8 +10,13 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
         magnifierAA: false,
         magnifierCM: false
     }, function(items){
-        // If compatibility mode is enabled
+        // Check if compatibility mode is enabled
         if(items.magnifierCM){
+            // Close the tab if it's a magnifier tab
+            if (theTab.title.indexOf("_Magnifying_Glass")==0){
+                chrome.tabs.remove(theTab.id);
+                return;
+            }
             // Capture the image in loseless format
             chrome.tabs.captureVisibleTab({format: "png"}, function(screenshotUrl) {
                 var viewTabUrl = chrome.extension.getURL('snapshot.html?id=' + id++)

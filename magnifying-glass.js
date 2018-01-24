@@ -1,4 +1,8 @@
 chrome.runtime.onMessage.addListener(function transfer(config, sender){
+    // Do nothing if a magnifying glass has already been summoned
+    if (document.getElementById("_bottom_layer")){
+        return;
+    }
     // Create new div for the magnifier
     $('body').after('<div class="_magnify_scope"><div id="_bottom_layer" tabindex="0"></div></div>');
 
@@ -54,6 +58,7 @@ chrome.runtime.onMessage.addListener(function transfer(config, sender){
     // Turn off the application if the user's action imply they want to do so
     $('#_bottom_layer').on('wheel keydown click', function(e){
         $('._magnify_scope').remove();
+        return;
     })
     
 
