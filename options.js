@@ -2,9 +2,15 @@
 function save_options() {
     var magStr = document.getElementById('strength').value;
     var magSize = document.getElementById('size').value;
+    var magAA = document.getElementById('aa').checked;
+    var magCM = document.getElementById('cm').checked;
+    var magShape = document.getElementById('shape').value;
     chrome.storage.sync.set({
         magnifierStrength: magStr,
-        magnifierSize: magSize
+        magnifierSize: magSize,
+        magnifierAA: magAA,
+        magnifierCM: magCM,
+        magnifierShape: magShape
     }, function() {
         // Update status to let user know options were saved.
         var status = document.getElementById('status');
@@ -22,11 +28,17 @@ function save_options() {
 // Restore data using the preferences stored in chrome.storage.
 function restore_options() {
     chrome.storage.sync.get({
-        magnifierStrength: 4,
-        magnifierSize: 275
+        magnifierStrength: 2,
+        magnifierSize: 425,
+        magnifierAA: false,
+        magnifierCM: false,
+        magnifierShape: 100
     }, function(items) {
         document.getElementById('strength').value = items.magnifierStrength;
         document.getElementById('size').value = items.magnifierSize;
+        document.getElementById('aa').checked = items.magnifierAA;
+        document.getElementById('cm').checked = items.magnifierCM;
+        document.getElementById('shape').value = items.magnifierShape;
     });
 };
 

@@ -1,0 +1,19 @@
+._magnify_scope{
+    position: fixed;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 2147483647;
+}
+
+#_bottom_layer{
+    position: absolute;
+    display: none;
+    cursor: none;
+    outline: none;
+}
