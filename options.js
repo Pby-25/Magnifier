@@ -28,8 +28,8 @@ function save_options() {
 // Restore data using the preferences stored in chrome.storage.
 function restore_options() {
     chrome.storage.sync.get({
-        magnifierStrength: 4,
-        magnifierSize: 500,
+        magnifierStrength: 2,
+        magnifierSize: 425,
         magnifierAA: false,
         magnifierCM: false,
         magnifierShape: 100

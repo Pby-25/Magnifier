@@ -5,8 +5,8 @@ var id = 100;
 chrome.browserAction.onClicked.addListener(function(theTab) {
 
     chrome.storage.sync.get({
-        magnifierStrength: 4,
-        magnifierSize: 500,
+        magnifierStrength: 2,
+        magnifierSize: 425,
         magnifierAA: false,
         magnifierCM: false,
         magnifierShape: 100
