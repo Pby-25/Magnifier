@@ -1,8 +1,9 @@
 {
   "manifest_version": 2,
-  "name": "Magnifying Glass",
-  "version": "1.0.0",
-  "description": "Summon a magnifying glass with the press of a button",
+  "name": "__MSG_name__",
+  "version": "1.0.1",
+  "description": "__MSG_description__",
+  "default_locale": "en",
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",

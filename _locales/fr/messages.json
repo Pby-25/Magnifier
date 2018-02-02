@@ -1,0 +1,41 @@
+{
+  "name": {
+    "message": "Loupe"
+  },
+  "description": {
+    "message": "La loupe agrandit une partie de la page, sans affecté le reste du site."
+  },
+  "label_str": {
+    "message": "Puissance de la loupe:"
+  },
+  "label_times": {
+    "message": "fois"
+  },
+  "label_size": {
+    "message": "Diamètre de la loupe:"
+  },
+  "label_pixels": {
+    "message": "pixels"
+  },
+  "label_aa": {
+    "message": "Anticrénelage"
+  },
+  "label_mode": {
+    "message": "Mode de compatibilité"
+  },
+  "label_shape": {
+    "message": "Forme de la loupe:"
+  },
+  "label_rect": {
+    "message": "Rectangulaire"
+  },
+  "label_circ": {
+    "message": "Circulaire"
+  },
+  "label_default": {
+    "message": "Par défault"
+  },
+  "label_save": {
+    "message": "Appliquer"
+  }
+}

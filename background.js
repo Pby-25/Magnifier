@@ -7,7 +7,7 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
     chrome.storage.sync.get({
         magnifierStrength: 2,
         magnifierSize: 425,
-        magnifierAA: false,
+        magnifierAA: true,
         magnifierCM: false,
         magnifierShape: 100
     }, function(items){

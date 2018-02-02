@@ -30,7 +30,7 @@ function restore_options() {
     chrome.storage.sync.get({
         magnifierStrength: 2,
         magnifierSize: 425,
-        magnifierAA: false,
+        magnifierAA: true,
         magnifierCM: false,
         magnifierShape: 100
     }, function(items) {
@@ -54,6 +54,22 @@ function reset_options(){
     });
 };
 
+// Set the page to appropriate language
+function init(){
+    document.getElementById("label_str").innerText = chrome.i18n.getMessage("label_str");
+    document.getElementById("label_times").innerText = chrome.i18n.getMessage("label_times");
+    document.getElementById("label_size").innerText = chrome.i18n.getMessage("label_size");
+    document.getElementById("label_pixels").innerText = chrome.i18n.getMessage("label_pixels");
+    document.getElementById("label_aa").innerText = chrome.i18n.getMessage("label_aa");
+    document.getElementById("label_mode").innerText = chrome.i18n.getMessage("label_mode");
+    document.getElementById("label_shape").innerText = chrome.i18n.getMessage("label_shape");
+    document.getElementById("label_rect").innerText = chrome.i18n.getMessage("label_rect");
+    document.getElementById("label_circ").innerText = chrome.i18n.getMessage("label_circ");
+    document.getElementById("label_default").innerText = chrome.i18n.getMessage("label_default");
+    document.getElementById("label_save").innerText = chrome.i18n.getMessage("label_save");
+}
+
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click', save_options);
 document.getElementById('reset').addEventListener('click', reset_options);
+init();
