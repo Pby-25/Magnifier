@@ -1,0 +1,41 @@
+{
+  "name": {
+    "message": "放大镜"
+  },
+  "description": {
+    "message": "放大镜好似雨伞，不知什么时候就能用上。"
+  },
+  "label_str": {
+    "message": "放大镜倍数："
+  },
+  "label_times": {
+    "message": "倍"
+  },
+  "label_size": {
+    "message": "放大镜直径："
+  },
+  "label_pixels": {
+    "message": "像素"
+  },
+  "label_aa": {
+    "message": "抗锯齿"
+  },
+  "label_mode": {
+    "message": "兼容模式"
+  },
+  "label_shape": {
+    "message": "放大镜形状："
+  },
+  "label_rect": {
+    "message": "方形"
+  },
+  "label_circ": {
+    "message": "圆形"
+  },
+  "label_default": {
+    "message": "默认"
+  },
+  "label_save": {
+    "message": "应用"
+  }
+}

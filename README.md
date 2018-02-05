@@ -1,6 +1,10 @@
-Simply press `Alt`+`Z`* to summon the magnifying glass!
+Simply press `Alt`+`Z`* to summon the magnifying glass! Then press any key to remove it.
 
-A magnifying glass is like an umbrella. You might only think about it occasionally, but sometimes it could save you a lot of hassle if you have it on hand.
+The magnifying glass shows a zoomed image within its radius, without disturbing the rest of the page.
+
+"A magnifying glass is like an umbrella. Sometimes, it could save you a lot of hassle if you have it on hand."
+
+***Please note that the extension does not work in new tab page, chrome web store or chrome setting page by default, but it should work on any other webpages. You can also enable compatibility mode to make it compatible with the aforementioned pages.***
 
 **customizable, `Ctrl`+`Z` for MAC users*
 

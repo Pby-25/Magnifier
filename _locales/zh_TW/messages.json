@@ -1,0 +1,41 @@
+{
+  "name": {
+    "message": "放大鏡"
+  },
+  "description": {
+    "message": "放大鏡好似雨傘，不知什麽時候就能用上。"
+  },
+  "label_str": {
+    "message": "放大鏡倍率："
+  },
+  "label_times": {
+    "message": "倍"
+  },
+  "label_size": {
+    "message": "放大鏡直徑："
+  },
+  "label_pixels": {
+    "message": "像素"
+  },
+  "label_aa": {
+    "message": "抗鋸齒"
+  },
+  "label_mode": {
+    "message": "兼容模式"
+  },
+  "label_shape": {
+    "message": "放大鏡形狀："
+  },
+  "label_rect": {
+    "message": "方形"
+  },
+  "label_circ": {
+    "message": "圓形"
+  },
+  "label_default": {
+    "message": "預設值"
+  },
+  "label_save": {
+    "message": "套用"
+  }
+}

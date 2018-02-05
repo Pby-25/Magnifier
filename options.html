@@ -4,28 +4,28 @@
     <title>Magnifier Extension Options</title>
 </head>
 <body>
-    Magnifier Strength:
+    <span id="label_str">Magnifier Strength:</span>
     <br>
-    <input type="number" min="0" step="any" id="strength">times
+    <input type="number" min="0" step="any" id="strength"><span id="label_times">times</span>
     <br>
-    Magnifier Diameter:
+    <span id="label_size">Magnifier Diameter:</span>
     <br>
-    <input type="number" min="0" step="any" id="size">pixels
+    <input type="number" min="0" step="any" id="size"><span id="label_pixels">pixels</span>
     <br>
-    Anti-Aliasing
+    <span id="label_aa">Anti-Aliasing</span>
     <input title="anti-aliasing will render the images smoother but blurrier" type="checkbox" id="aa">
     <br>
-    Compatibility Mode
+    <span id="label_mode">Compatibility Mode</span>
     <input title="compatibility mode delivers perfect compatibility by launching the magnifier in a new tab" type="checkbox" id="cm">
     <br>
-    Magnifier Shape:
+    <span id="label_shape">Magnifier Shape:</span>
     <br>
-    <sup>Rectangular</sup><input type="range" min="0" max="100" step="1" id="shape"><sup>Circular</sup>
+    <sup id="label_rect">Rectangular</sup><input type="range" min="0" max="100" step="1" id="shape"><sup id="label_circ">Circular</sup>
     <br>
 
     <div id="status"></div>
-    <button id="reset">Default</button>
-    <button id="save">Apply</button>
+    <button id="reset"><span id="label_default">Default</span></button>
+    <button id="save"><span id="label_save">Apply</span></button>
 
     <script src="options.js"></script>
 </body>

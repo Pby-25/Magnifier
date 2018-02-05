@@ -1,0 +1,41 @@
+{
+  "name": {
+    "message": "Magnifying Glass"
+  },
+  "description": {
+    "message": "The magnifying glass shows a zoomed image within its radius, without disturbing the rest of the page."
+  },
+  "label_str": {
+    "message": "Magnifier Strength:"
+  },
+  "label_times": {
+    "message": "times"
+  },
+  "label_size": {
+    "message": "Magnifier Diameter:"
+  },
+  "label_pixels": {
+    "message": "pixels"
+  },
+  "label_aa": {
+    "message": "Anti-Aliasing"
+  },
+  "label_mode": {
+    "message": "Compatibility Mode"
+  },
+  "label_shape": {
+    "message": "Magnifier Shape:"
+  },
+  "label_rect": {
+    "message": "Rectangular"
+  },
+  "label_circ": {
+    "message": "Circular"
+  },
+  "label_default": {
+    "message": "Default"
+  },
+  "label_save": {
+    "message": "Apply"
+  }
+}
