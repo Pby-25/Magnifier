@@ -5,12 +5,16 @@ function save_options() {
     var magAA = document.getElementById('aa').checked;
     var magCM = document.getElementById('cm').checked;
     var magShape = document.getElementById('shape').value;
+    var osCompensation = document.getElementById('os_mag').value;
+    var escOnly = document.getElementById('esc').checked;
     chrome.storage.sync.set({
         magnifierStrength: magStr,
         magnifierSize: magSize,
         magnifierAA: magAA,
         magnifierCM: magCM,
-        magnifierShape: magShape
+        magnifierShape: magShape,
+        osFactor: osCompensation,
+        escLimit: escOnly
     }, function() {
         // Update status to let user know options were saved.
         var status = document.getElementById('status');
@@ -32,13 +36,17 @@ function restore_options() {
         magnifierSize: 425,
         magnifierAA: true,
         magnifierCM: false,
-        magnifierShape: 100
+        magnifierShape: 100,
+        osFactor: 100,
+        escLimit: false
     }, function(items) {
         document.getElementById('strength').value = items.magnifierStrength;
         document.getElementById('size').value = items.magnifierSize;
         document.getElementById('aa').checked = items.magnifierAA;
         document.getElementById('cm').checked = items.magnifierCM;
         document.getElementById('shape').value = items.magnifierShape;
+        document.getElementById('os_mag').value = items.osFactor;
+        document.getElementById('esc').checked = items.escLimit;
     });
 };
 
@@ -67,6 +75,8 @@ function init(){
     document.getElementById("label_circ").innerText = chrome.i18n.getMessage("label_circ");
     document.getElementById("label_default").innerText = chrome.i18n.getMessage("label_default");
     document.getElementById("label_save").innerText = chrome.i18n.getMessage("label_save");
+    document.getElementById("label_compensation").innerText = chrome.i18n.getMessage("label_compensation");
+    document.getElementById("label_esc").innerText = chrome.i18n.getMessage("label_esc");
 }
 
 document.addEventListener('DOMContentLoaded', restore_options);

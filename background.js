@@ -9,7 +9,9 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
         magnifierSize: 425,
         magnifierAA: true,
         magnifierCM: false,
-        magnifierShape: 100
+        magnifierShape: 100,
+        osFactor: 100,
+        escLimit: false
     }, function(items){
         // Check if compatibility mode is enabled
         if(items.magnifierCM){
@@ -56,7 +58,8 @@ chrome.browserAction.onClicked.addListener(function(theTab) {
                                 chrome.tabs.sendMessage(theTab.id, {
                                     snapshot_url: screenshotUrl, magnifier_str: items.magnifierStrength,
                                     magnifier_size: items.magnifierSize, magnifier_aa: items.magnifierAA,
-                                    magnifier_shape: items.magnifierShape, page_zoom: zoomFactor
+                                    magnifier_shape: items.magnifierShape, page_zoom: zoomFactor,
+                                    os_compensation: items.osFactor, esc_only: items.escLimit
                                 })
                             })
                         })

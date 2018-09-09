@@ -37,5 +37,11 @@
   },
   "label_save": {
     "message": "Apply"
+  },
+  "label_compensation": {
+    "message": "Compensation for OS-level Display Scaling:"
+  },
+  "label_esc": {
+    "message": "Only Close on ESC Keypress"
   }
 }

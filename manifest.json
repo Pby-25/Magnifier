@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "__MSG_name__",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "__MSG_description__",
   "default_locale": "en",
   "icons": {
@@ -11,7 +11,7 @@
     "512": "icon.png"
   },
   "browser_action": {
-    "default_title": "Magnifying Glass"
+    "default_title": "__MSG_name__"
   },
   "background": {
     "scripts": ["background.js"],

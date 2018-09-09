@@ -3,10 +3,10 @@
     "message": "Loupe"
   },
   "description": {
-    "message": "La loupe agrandit une partie de la page, sans affecté le reste du site."
+    "message": "La loupe agrandit une partie de la page, sans affecter le reste du site."
   },
   "label_str": {
-    "message": "Puissance de la loupe:"
+    "message": "Grossissement de la loupe:"
   },
   "label_times": {
     "message": "fois"
@@ -37,5 +37,11 @@
   },
   "label_save": {
     "message": "Appliquer"
+  },
+  "label_compensation": {
+    "message": "Compensation pour l'échelle par le système opérateur:"
+  },
+  "label_esc": {
+    "message": "Désactiver seulment si Échap est appuyé"
   }
 }

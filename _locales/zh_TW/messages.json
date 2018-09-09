@@ -3,7 +3,7 @@
     "message": "放大鏡"
   },
   "description": {
-    "message": "放大鏡好似雨傘，不知什麽時候就能用上。"
+    "message": "放大鏡好似雨傘，説不定什麽時候就能用上。"
   },
   "label_str": {
     "message": "放大鏡倍率："
@@ -37,5 +37,11 @@
   },
   "label_save": {
     "message": "套用"
+  },
+  "label_compensation": {
+    "message": "作業系統全局縮放比補償:"
+  },
+  "label_esc": {
+    "message": "僅在ESC鍵被按下是關閉放大鏡"
   }
 }
