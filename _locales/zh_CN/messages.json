@@ -3,7 +3,7 @@
     "message": "放大镜"
   },
   "description": {
-    "message": "放大镜好似雨伞，不知什么时候就能用上。"
+    "message": "放大镜好似雨伞，说不定什么时候就能用上。"
   },
   "label_str": {
     "message": "放大镜倍数："
@@ -37,5 +37,11 @@
   },
   "label_save": {
     "message": "应用"
+  },
+  "label_compensation": {
+    "message": "操作系统全局缩放比补偿:"
+  },
+  "label_esc": {
+    "message": "仅在ESC键被按下时关闭放大镜"
   }
 }

@@ -12,8 +12,15 @@
     <br>
     <input type="number" min="0" step="any" id="size"><span id="label_pixels">pixels</span>
     <br>
+    <span id="label_compensation">Compensation for OS-level Display Scaling:</span>
+    <br>
+    <input type="number" min="100" step="any" id="os_mag"><span>%</span>
+    <br>
     <span id="label_aa">Anti-Aliasing</span>
     <input title="anti-aliasing will render the images smoother but blurrier" type="checkbox" id="aa">
+    <br>
+    <span id="label_esc">Only Close on ESC Keypress</span>
+    <input title="if selected, the magnifier will only close when ESC key is pressed" type="checkbox" id="esc">
     <br>
     <span id="label_mode">Compatibility Mode</span>
     <input title="compatibility mode delivers perfect compatibility by launching the magnifier in a new tab" type="checkbox" id="cm">

@@ -9,11 +9,12 @@ chrome.runtime.onMessage.addListener(function transfer(config, sender){
     $('body').after('<div class="_magnify_scope"><div id="_bottom_layer" tabindex="0"></div></div>');
 
     var imageUrl = config.snapshot_url;
-    var zoom = config.page_zoom;
+    var zoom = config.page_zoom*(config.os_compensation/100);
     var strength = config.magnifier_str;
     var magniSize = config.magnifier_size/zoom;
     var magAA = config.magnifier_aa;
     var magShape = config.magnifier_shape;
+    var escOnly = config.esc_only;
     // Remove the listener since it's no longer needed
     chrome.runtime.onMessage.removeListener(transfer);
 
@@ -68,7 +69,13 @@ chrome.runtime.onMessage.addListener(function transfer(config, sender){
 
     // Turn off the application if the user's action imply they want to do so
     $('#_bottom_layer').on('wheel keydown click', function(e){
-        $('._magnify_scope').remove();
+        if (escOnly){
+            if (e.keyCode && e.keyCode==27){
+                $('._magnify_scope').remove();
+            }
+        } else {
+            $('._magnify_scope').remove();
+        }
         return;
     })
     
